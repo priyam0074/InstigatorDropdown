@@ -4,7 +4,7 @@ const SearchInput =(props)=> {
     }
 
     const setSearchItem = (e)=>{
-        props.setSearchItem(e)
+        props.setSearchItems(e)
     }
     return(
         <div className="input-icons">

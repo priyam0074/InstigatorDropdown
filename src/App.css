@@ -200,7 +200,7 @@ pre {
     align-content: space-around;
     transition: all .2s ease-in-out;
 }
-.options-drop:hover .options-drop:active{
+.options-drop:hover, .options-drop:active{
   transform: scale(1.02);
   background: #d0e1ea;
 }

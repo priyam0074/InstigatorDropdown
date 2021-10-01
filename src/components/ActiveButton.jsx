@@ -18,7 +18,10 @@ useEffect(()=>{
     if(!props.display) {
         setState('')
     }
-},[props.display])
+    if(props.reset === 'All' || props.reset ==='None') {
+        setState('')
+    }
+},[props.display, props.reset])
 
   return (
     <>

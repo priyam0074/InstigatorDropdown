@@ -13,6 +13,7 @@ const AutoComplete = (props) => {
     setSearch] = useState("");
   const [showFilter,
     setShowFilter] = useState(false);
+  const [reset, setReset]= useState('');
   const wrapperRef = useRef(null);
   const unSelectedItems = useSelector(state => state.dropdown.items);
   const selectedItems = useSelector(state => state.dropdown.selectedItems);
@@ -72,6 +73,7 @@ const AutoComplete = (props) => {
   };
 
   const handleOnChange = (event, item) => {
+    reset === 'All'? setReset('None'): setReset('All');
     const addItem = {
       ...item,
       isChecked: event.target.checked
@@ -79,8 +81,10 @@ const AutoComplete = (props) => {
     setShowFilter(true);
     if (event.target.checked) {
       dispatch(dropdownActions.AddReducer(addItem))
+      
     } else {
       dispatch(dropdownActions.RemoveDropDownReducer(addItem))
+     
     }
   }
 
@@ -105,7 +109,7 @@ const AutoComplete = (props) => {
   return (
     <div ref={wrapperRef} className="flex-container flex-column pos-rel">
         <SearchInput search={search} displayDropDown={displayDropDown} setSearchItems={setSearchItems}></SearchInput>
-        <ActiveButton display={display}></ActiveButton>
+        <ActiveButton display={display} reset={reset}></ActiveButton>
         {!display && <div className="brightColor-msg"> <i className="fas fa-info-circle"></i> Click on search bar to show list and enable button</div>}
         {display && (
           <DropDownList options={options} search={search} handleOnChange={handleOnChange} showFilter={showFilter} filterSelection={filterSelection}></DropDownList>
