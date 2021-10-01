@@ -4,6 +4,7 @@ import {dropdownActions} from '../Store/dropdown-slice'
 import SearchInput from "./SearchInput";
 import ActiveButton from './ActiveButton'
 import DropDownList from "./DropDownList";
+import data from  '../data/data.json'
 const AutoComplete = (props) => {
   const [display,
     setDisplay] = useState(false);
@@ -21,32 +22,39 @@ const AutoComplete = (props) => {
   const toggleCartHandler = (item) => {
     dispatch(dropdownActions.setDropDownReducer(item))
   }
+  // dispatch(setDropDownReducer(data))
 
   // for data we fetch data from pokeapi and extract the required and prepare
   // model for the same model ----> {id: number, name:string,
   // sprite:string,isChecked:boolean}
-  useEffect(() => {
-    const pokemon = [];
-    const promises = new Array(20)
-      .fill()
-      .map((v, i) => fetch(`https://pokeapi.co/api/v2/pokemon-form/${i + 1}`));
-    Promise
-      .all(promises)
-      .then(pokemonArr => {
-        return pokemonArr.map((value, i) => value.json().then(({
-          name,
-          sprites: {
-            front_default: sprite
-          }
-        }) => pokemon.push({
-          id: i + 1,
-          name,
-          sprite,
-          isChecked: false
-        })));
-      });
-    setOptions(pokemon);
-  }, []);
+  // useEffect(() => {
+  //   const pokemon = [];
+  //   const promises = new Array(20)
+  //     .fill()
+  //     .map((v, i) => fetch(`https://pokeapi.co/api/v2/pokemon-form/${i + 1}`));
+  //   Promise
+  //     .all(promises)
+  //     .then(pokemonArr => {
+  //       return pokemonArr.map((value, i) => value.json().then(({
+  //         name,
+  //         sprites: {
+  //           front_default: sprite
+  //         }
+  //       }) => pokemon.push({
+  //         id: i + 1,
+  //         name,
+  //         sprite,
+  //         isChecked: false
+  //       })));
+  //     });
+  //   setOptions(pokemon);
+  // }, []);
+
+  useEffect(()=>{
+    toggleCartHandler(data)
+    console.log(unSelectedItems)
+    setOptions(unSelectedItems);
+  },[])
 
   useEffect(() => {
     if (unSelectedItems.length > 0) {
@@ -81,7 +89,6 @@ const AutoComplete = (props) => {
     setShowFilter(true);
     if (event.target.checked) {
       dispatch(dropdownActions.AddReducer(addItem))
-      
     } else {
       dispatch(dropdownActions.RemoveDropDownReducer(addItem))
      

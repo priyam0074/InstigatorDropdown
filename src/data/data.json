@@ -1,0 +1,47 @@
+[
+    {
+        "id":1,
+        "name": "Website.com",
+        "isChecked":false
+    },
+    {
+        "id":2,
+        "name": "Website-two.com" ,
+        "isChecked":false
+    },
+    {
+        "id":3,
+        "name": "my-website.com" ,
+        "isChecked":false
+    },
+    {
+        "id":4,
+        "name": "page.com" ,
+        "isChecked":false
+    },
+    {
+        "id":5,
+        "name": "web-blog.com" ,
+        "isChecked":false
+    },
+    {
+        "id":6,
+        "name": "Website-three.com" ,
+        "isChecked":false
+    },
+    {
+        "id":7,
+        "name": "Website-four.com" ,
+        "isChecked":false
+    },
+    {
+        "id":8,
+        "name": "Website-five.com" ,
+        "isChecked":false
+    },
+    {
+        "id":9,
+        "name": "Website-six.com" ,
+        "isChecked":false
+    }
+]

@@ -28,12 +28,12 @@ useEffect(()=>{
     <div className="selectBtnHeight"> 
        <button onClick={()=> displayDropDownChecked()} className={`button-select  ${props.display ? "selectActiveState" : "selectUnActiveState"} ${state === 'All'? "color-btn ": ""} ` } disabled={!props.display} >
        <i className="fas fa-plus-circle mr-2"></i>
-        select All</button>
+        Select all</button>
        </div>
     <div className="selectBtnHeight"> 
         <button onClick={()=> displayDropDownUnChecked()} className={`button-select ${props.display ? "selectActiveState" : "selectUnActiveState"} ${state === 'None'? "color-btn ": ""}` } disabled={!props.display} >
             <i className="fas fa-times-circle mr-2"></i>
-             select None</button>
+             Select none</button>
     </div>
     </>
   )

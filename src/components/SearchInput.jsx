@@ -14,7 +14,7 @@ const SearchInput =(props)=> {
            className="input-searchahead"
           id="auto input-searchahead "
           onClick={()=> displayDropDown(true)}
-          placeholder="Type to search"
+          placeholder="Search"
           value={props.search}
           onChange={event => setSearchItem(event.target.value)}
         />

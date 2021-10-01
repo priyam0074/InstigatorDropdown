@@ -2,7 +2,7 @@ const DropDownList =(props)=> {
     return(
         <div className="autoContainer">
             {props.options
-              .filter(({ name }) => name.indexOf(props.search.toLowerCase()) > -1)
+              .filter(({ name }) => name.toLowerCase().indexOf(props.search.toLowerCase()) > -1)
               .map((value, i) => {
                 return (
                   <div
@@ -11,8 +11,8 @@ const DropDownList =(props)=> {
                     tabIndex="0"
                   >
                      <input type="checkbox" id={value.id} name={value.name} value={value.name} checked={value.isChecked} onChange={($event)=>props.handleOnChange($event, value)}></input> 
-                    <label htmlFor={value.id} className={`option-span ${value.isChecked ?"on-chcek":"on-uncheck"}`}>{value.name}</label>
-                    <img className={'img-spirtes'} src={value.sprite} alt="pokemon" />
+                    <label htmlFor={value.id} className={`option-span ${value.isChecked ?"on-chcek":"on-uncheck"}`}>{value.name.toLowerCase()}</label>
+                    {/* <img className={'img-spirtes'} src={value.sprite} alt="pokemon" /> */}
                   </div>
                 );
               })}
