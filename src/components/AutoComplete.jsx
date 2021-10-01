@@ -52,7 +52,6 @@ const AutoComplete = (props) => {
 
   useEffect(()=>{
     toggleCartHandler(data)
-    console.log(unSelectedItems)
     setOptions(unSelectedItems);
   },[])
 
